@@ -39,10 +39,10 @@ export default function Home() {
         <p>Automation • API • Backend • AI-Assisted QA</p>
       </section>
 
-      {/* PROFILE POPUP */}
+      {/* IMAGE POPUP */}
       {showImage && (
         <div className="modal" onClick={() => setShowImage(false)}>
-          <img src="/profile.jpg" className="modal-img" />
+          <img src="/profile.jpg" alt="Popup" className="modal-img" />
         </div>
       )}
 
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="skills-grid">
           <div><h4>Automation</h4><p>Selenium, Playwright, Cypress</p></div>
           <div><h4>Languages</h4><p>Java, Python, JavaScript</p></div>
-          <div><h4>API Testing</h4><p>REST, SOAP, Postman</p></div>
+          <div><h4>API Testing</h4><p>REST, SOAP</p></div>
           <div><h4>Backend</h4><p>SQL, Data Validation</p></div>
           <div><h4>CI/CD</h4><p>GitHub, Jenkins</p></div>
           <div><h4>AI QA</h4><p>Prompt Engineering, AI Testing</p></div>
@@ -73,11 +73,11 @@ export default function Home() {
         <h2>Projects</h2>
         <div className="card">
           <h4>Automation Framework</h4>
-          <p>End-to-end automation using Selenium & Playwright.</p>
+          <p>Selenium & Playwright based E2E automation.</p>
         </div>
         <div className="card">
           <h4>API Test Suite</h4>
-          <p>Python-based REST API validation with SQL checks.</p>
+          <p>REST API automation with Python & SQL checks.</p>
         </div>
       </section>
 
@@ -99,17 +99,26 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">🔗</a>
-        <a href="https://github.com/yourprofile" target="_blank">💻</a>
-        <a href="/SaiKeerthanaResume.pdf" target="_blank">📄</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">🔗</a>
+        <a href="https://github.com/yourprofile" target="_blank" rel="noreferrer">💻</a>
+        <a href="/SaikeerthanaResume.pdf" target="_blank" rel="noreferrer">📄</a>
       </footer>
 
       {/* STYLES */}
       <style jsx>{`
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { margin: 0; font-family: "Poppins", sans-serif; }
+        * {
+          box-sizing: border-box;
+          scroll-behavior: smooth;
+        }
 
-        section { scroll-margin-top: 90px; }
+        body {
+          margin: 0;
+          font-family: "Poppins", sans-serif;
+        }
+
+        section {
+          scroll-margin-top: 90px;
+        }
 
         .nav {
           position: sticky;
@@ -121,7 +130,9 @@ export default function Home() {
           z-index: 100;
         }
 
-        .nav h3 { color: #38bdf8; }
+        .nav h3 {
+          color: #38bdf8;
+        }
 
         .nav-links a {
           margin-left: 1.2rem;
@@ -142,15 +153,18 @@ export default function Home() {
           transition: transform 0.3s;
         }
 
-        .profile:hover { transform: scale(1.1); }
+        .profile:hover {
+          transform: scale(1.1);
+        }
 
         .modal {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.8);
+          background: rgba(0, 0, 0, 0.85);
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
+          z-index: 200;
         }
 
         .modal-img {
@@ -170,14 +184,16 @@ export default function Home() {
           gap: 1.5rem;
         }
 
-        .skills-grid div, .card {
+        .skills-grid div,
+        .card {
           background: #020617;
           padding: 1.5rem;
           border-radius: 14px;
           transition: transform 0.3s;
         }
 
-        .skills-grid div:hover, .card:hover {
+        .skills-grid div:hover,
+        .card:hover {
           transform: translateY(-6px);
         }
 
@@ -187,3 +203,12 @@ export default function Home() {
           background: #020617;
           font-size: 1.5rem;
         }
+
+        .footer a {
+          margin: 0 1rem;
+          text-decoration: none;
+        }
+      `}</style>
+    </>
+  );
+}
