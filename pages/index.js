@@ -7,20 +7,24 @@ export default function Home() {
   useEffect(() => {
     const items = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
-      entries =>
-        entries.forEach(e => e.isIntersecting && e.target.classList.add("active")),
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
       { threshold: 0.15 }
     );
-    items.forEach(i => observer.observe(i));
+    items.forEach(item => observer.observe(item));
   }, []);
 
   return (
     <>
       <Head>
         <title>Sai Keerthana Bala | SDET</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -31,13 +35,15 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="nav">
-        <h3>Sai Keerthana Bala</h3>
-        <div className="links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certifications">Certs</a>
-          <a href="#contact">Contact</a>
+        <div className="nav-inner">
+          <h3>Sai Keerthana Bala</h3>
+          <div className="links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
       </nav>
 
@@ -45,14 +51,14 @@ export default function Home() {
       <section className="hero reveal">
         <img
           src="/profile.jpg"
+          alt="Sai Keerthana Bala"
           className="profile"
           onClick={() => setShowImage(true)}
-          alt="Sai Keerthana Bala"
         />
-        <h1>SDET • Automation • API</h1>
-        <p>Building reliable, scalable & intelligent test systems</p>
+        <h1>Software Development Engineer in Test</h1>
+        <p>Automation • API • Backend • QA Engineering</p>
 
-        <div className="hero-buttons">
+        <div className="hero-actions">
           <a href="/SaiKeerthanaResume.pdf" target="_blank" className="btn">
             <i className="fa-solid fa-file-lines"></i> Resume
           </a>
@@ -66,7 +72,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MODAL */}
+      {/* IMAGE MODAL */}
       {showImage && (
         <div className="modal" onClick={() => setShowImage(false)}>
           <img src="/profile.jpg" alt="profile" />
@@ -75,66 +81,72 @@ export default function Home() {
 
       {/* ABOUT */}
       <section id="about" className="section reveal">
-        <h2>👩‍💻 About Me</h2>
+        <h2>About</h2>
         <p>
-          Software Development Engineer in Test with <strong>5+ years</strong> of
-          experience in automation, backend, and API testing across healthcare
-          and financial domains.
+          I am a <strong>Software Development Engineer in Test (SDET)</strong> with
+          5+ years of experience in automation, API, and backend testing across
+          healthcare and financial domains.
         </p>
         <p>
-          Passionate about CI/CD, AI-assisted QA, and building maintainable test
-          frameworks that scale.
+          I focus on building scalable test frameworks, improving CI/CD quality,
+          and enabling faster, reliable releases.
         </p>
       </section>
 
       {/* SKILLS */}
       <section id="skills" className="section reveal">
-        <h2>🧪 Skills</h2>
+        <h2>Skills</h2>
         <div className="skills">
-          <div><i className="fa-solid fa-robot"></i> Automation<br/><span>Selenium, Playwright, Cypress</span></div>
-          <div><i className="fa-solid fa-code"></i> Programming<br/><span>Java, Python, JS</span></div>
-          <div><i className="fa-solid fa-plug"></i> API Testing<br/><span>REST, SOAP, Postman</span></div>
-          <div><i className="fa-solid fa-database"></i> Databases<br/><span>SQL Validation</span></div>
-          <div><i className="fa-solid fa-gears"></i> CI/CD<br/><span>Jenkins, GitHub</span></div>
-          <div><i className="fa-solid fa-brain"></i> AI-QA<br/><span>Prompt Engg, Test Gen</span></div>
+          <span>Selenium</span>
+          <span>Playwright</span>
+          <span>Cypress</span>
+          <span>Java</span>
+          <span>Python</span>
+          <span>REST API</span>
+          <span>Postman</span>
+          <span>SQL</span>
+          <span>Jenkins</span>
+          <span>GitHub</span>
+          <span>Agile</span>
+          <span>AI-Assisted Testing</span>
         </div>
       </section>
 
       {/* PROJECTS */}
       <section id="projects" className="section reveal">
-        <h2>📂 Projects</h2>
+        <h2>Projects</h2>
 
-        <div className="card">
-          <h3>DHCS – Healthcare</h3>
+        <div className="project">
+          <h3>DHCS – Healthcare (California State Client)</h3>
           <p>
-            Automated and backend testing for Medicaid eligibility, claims, and
-            provider workflows using Selenium, APIs, and SQL.
+            End-to-end automation and backend testing for Medicaid eligibility,
+            provider enrollment, and claims processing systems.
           </p>
         </div>
 
-        <div className="card">
-          <h3>Creditsafe – Financial</h3>
+        <div className="project">
+          <h3>Creditsafe Technologies – Financial Domain</h3>
           <p>
-            UI & API automation, CI/CD pipelines, cross-browser testing for
-            enterprise financial platforms.
+            UI and API automation frameworks, CI/CD integration, and cross-browser
+            testing for enterprise financial platforms.
           </p>
         </div>
       </section>
 
-      {/* CERTS */}
+      {/* CERTIFICATIONS */}
       <section id="certifications" className="section reveal">
-        <h2>🎓 Certifications</h2>
+        <h2>Certifications</h2>
         <ul className="certs">
-          <li>✔ DataCamp – AI Testing</li>
-          <li>✔ DataCamp – Python</li>
-          <li>✔ LinkedIn Learning – GitHub</li>
+          <li>DataCamp – AI Testing</li>
+          <li>DataCamp – Python Programming</li>
+          <li>LinkedIn Learning – GitHub</li>
         </ul>
       </section>
 
       {/* CONTACT */}
       <section id="contact" className="section reveal">
-        <h2>📬 Contact</h2>
-        <p>Open to QA / SDET / Automation roles</p>
+        <h2>Contact</h2>
+        <p>Open to SDET, QA Engineer, and Automation Tester roles.</p>
       </section>
 
       {/* FOOTER */}
@@ -150,106 +162,141 @@ export default function Home() {
 
       {/* STYLES */}
       <style jsx>{`
-        * { box-sizing: border-box; }
         body {
           margin: 0;
-          font-family: "Poppins", sans-serif;
-          background: linear-gradient(135deg, #0f172a, #020617);
-          color: #e5e7eb;
+          font-family: "Inter", sans-serif;
+          background: #f9fafb;
+          color: #111827;
         }
 
         .nav {
           position: sticky;
           top: 0;
-          z-index: 100;
-          background: rgba(2,6,23,0.9);
+          background: #ffffff;
+          border-bottom: 1px solid #e5e7eb;
+          z-index: 10;
+        }
+
+        .nav-inner {
+          max-width: 1100px;
+          margin: auto;
+          padding: 1rem 1.5rem;
           display: flex;
           justify-content: space-between;
-          padding: 1rem 2rem;
         }
 
         .links a {
           margin-left: 1rem;
-          color: #93c5fd;
           text-decoration: none;
+          color: #374151;
+          font-weight: 500;
         }
 
         .hero {
           text-align: center;
-          padding: 4rem 1.5rem 3rem;
+          padding: 3.5rem 1.5rem 2.5rem;
         }
 
         .profile {
           width: 140px;
           border-radius: 50%;
           cursor: pointer;
-          border: 4px solid #38bdf8;
-          transition: transform .3s;
         }
-        .profile:hover { transform: scale(1.1); }
 
-        h1 { font-size: 2.4rem; margin: 1rem 0; }
-        h2 { color: #38bdf8; margin-bottom: 1rem; }
+        h1 {
+          font-size: 2.3rem;
+          margin: 1rem 0 0.5rem;
+        }
 
-        .hero-buttons { margin-top: 1.5rem; }
+        h2 {
+          font-size: 1.7rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero-actions {
+          margin-top: 1.2rem;
+        }
+
         .btn {
-          padding: .6rem 1.2rem;
-          background: #38bdf8;
-          color: #020617;
-          border-radius: 25px;
-          margin: 0 .5rem;
+          display: inline-block;
+          padding: 0.55rem 1.2rem;
+          background: #2563eb;
+          color: #fff;
+          border-radius: 6px;
           text-decoration: none;
+          margin: 0 0.4rem;
         }
+
         .btn.outline {
           background: transparent;
-          border: 1px solid #38bdf8;
-          color: #38bdf8;
+          color: #2563eb;
+          border: 1px solid #2563eb;
         }
 
         .section {
-          max-width: 1000px;
+          max-width: 900px;
           margin: auto;
-          padding: 3rem 1.5rem;
+          padding: 2.5rem 1.5rem;
         }
 
         .skills {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-          gap: 1.2rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.6rem;
         }
-        .skills div, .card {
-          background: #020617;
-          border: 1px solid #1e293b;
-          padding: 1.2rem;
-          border-radius: 14px;
-        }
-        .skills i { color: #38bdf8; font-size: 1.3rem; }
 
-        .certs li { margin-bottom: .6rem; }
+        .skills span {
+          background: #e5e7eb;
+          padding: 0.45rem 0.75rem;
+          border-radius: 20px;
+          font-size: 0.85rem;
+        }
+
+        .project {
+          margin-bottom: 1.2rem;
+        }
+
+        .certs li {
+          margin-bottom: 0.5rem;
+        }
 
         .footer {
           text-align: center;
-          padding: 2rem;
-          border-top: 1px solid #1e293b;
-        }
-        .footer a {
-          margin: 0 .8rem;
-          color: #38bdf8;
-          font-size: 1.4rem;
+          padding: 2rem 1rem;
+          border-top: 1px solid #e5e7eb;
+          background: #ffffff;
         }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: .8s; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .footer a {
+          margin: 0 0.6rem;
+          color: #2563eb;
+          font-size: 1.3rem;
+        }
+
+        .reveal {
+          opacity: 0;
+          transform: translateY(25px);
+          transition: 0.7s ease;
+        }
+
+        .reveal.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
         .modal {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,.85);
+          background: rgba(0, 0, 0, 0.75);
           display: flex;
           align-items: center;
           justify-content: center;
         }
-        .modal img { width: 320px; border-radius: 20px; }
+
+        .modal img {
+          width: 300px;
+          border-radius: 14px;
+        }
       `}</style>
     </>
   );
