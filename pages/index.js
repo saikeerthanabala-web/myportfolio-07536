@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Head from "next/head";
-import { FaLinkedin, FaGithub, FaFilePdf } from "react-icons/fa";
 
 export default function Home() {
   const [showImage, setShowImage] = useState(false);
@@ -32,17 +31,15 @@ export default function Home() {
       <section className="hero">
         <img
           src="/profile.jpg"
-          alt="profile"
+          alt="Profile"
           className="profile"
           onClick={() => setShowImage(true)}
         />
         <h1>Software Development Engineer in Test</h1>
-        <p>
-          Automation • API • Backend Testing • AI-Assisted QA
-        </p>
+        <p>Automation • API • Backend • AI-Assisted QA</p>
       </section>
 
-      {/* IMAGE MODAL */}
+      {/* PROFILE POPUP */}
       {showImage && (
         <div className="modal" onClick={() => setShowImage(false)}>
           <img src="/profile.jpg" className="modal-img" />
@@ -50,66 +47,44 @@ export default function Home() {
       )}
 
       {/* ABOUT */}
-      <section id="about" className="section animate">
+      <section id="about" className="section">
         <h2>About Me</h2>
         <p>
-          I’m an SDET with <b>5+ years of experience</b> delivering scalable,
-          high-quality test solutions for web and API-driven systems.
-        </p>
-        <p>
-          I specialize in automation, backend validation, CI/CD pipelines, and
-          modern AI-assisted testing approaches.
+          SDET with <b>5+ years of experience</b> in building scalable automation
+          frameworks and validating complex web and API-based systems.
         </p>
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section animate">
+      <section id="skills" className="section">
         <h2>Skills</h2>
         <div className="skills-grid">
-          <div>
-            <h4>Automation</h4>
-            <p>Selenium, Playwright, Cypress</p>
-          </div>
-          <div>
-            <h4>Programming</h4>
-            <p>Java, Python, JavaScript</p>
-          </div>
-          <div>
-            <h4>API & Backend</h4>
-            <p>REST API, SOAP, SQL</p>
-          </div>
-          <div>
-            <h4>CI/CD & Tools</h4>
-            <p>GitHub, Jenkins, JIRA</p>
-          </div>
-          <div>
-            <h4>Testing Types</h4>
-            <p>Functional, Regression, E2E</p>
-          </div>
-          <div>
-            <h4>AI-Driven QA</h4>
-            <p>Test generation, defect analysis</p>
-          </div>
+          <div><h4>Automation</h4><p>Selenium, Playwright, Cypress</p></div>
+          <div><h4>Languages</h4><p>Java, Python, JavaScript</p></div>
+          <div><h4>API Testing</h4><p>REST, SOAP, Postman</p></div>
+          <div><h4>Backend</h4><p>SQL, Data Validation</p></div>
+          <div><h4>CI/CD</h4><p>GitHub, Jenkins</p></div>
+          <div><h4>AI QA</h4><p>Prompt Engineering, AI Testing</p></div>
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className="section animate">
+      <section id="projects" className="section">
         <h2>Projects</h2>
         <div className="card">
           <h4>Automation Framework</h4>
-          <p>Built scalable Selenium & Playwright framework integrated with CI.</p>
+          <p>End-to-end automation using Selenium & Playwright.</p>
         </div>
         <div className="card">
-          <h4>API Validation Suite</h4>
-          <p>Designed REST API tests with Python and SQL validation.</p>
+          <h4>API Test Suite</h4>
+          <p>Python-based REST API validation with SQL checks.</p>
         </div>
       </section>
 
       {/* CERTIFICATIONS */}
-      <section id="certifications" className="section animate">
+      <section id="certifications" className="section">
         <h2>Certifications</h2>
-        <ul className="cert-list">
+        <ul>
           <li>✔ Python Programming – DataCamp</li>
           <li>✔ AI Testing & Prompt Engineering</li>
           <li>✔ Java & Problem Solving – HackerRank</li>
@@ -117,64 +92,46 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section animate">
+      <section id="contact" className="section">
         <h2>Contact</h2>
         <p>Email: keerthanabala@example.com</p>
       </section>
 
       {/* FOOTER */}
       <footer className="footer">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">
-          <FaLinkedin />
-        </a>
-        <a href="https://github.com/yourprofile" target="_blank">
-          <FaGithub />
-        </a>
-        <a href="/resume.pdf" target="_blank">
-          <FaFilePdf />
-        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">🔗</a>
+        <a href="https://github.com/yourprofile" target="_blank">💻</a>
+        <a href="/SaiKeerthanaResume.pdf" target="_blank">📄</a>
       </footer>
 
       {/* STYLES */}
       <style jsx>{`
-        * {
-          box-sizing: border-box;
-          scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: "Poppins", sans-serif; }
 
-        body {
-          margin: 0;
-          font-family: "Poppins", sans-serif;
-        }
-
-        section {
-          scroll-margin-top: 90px;
-        }
+        section { scroll-margin-top: 90px; }
 
         .nav {
           position: sticky;
           top: 0;
-          z-index: 100;
+          background: #020617;
+          padding: 1rem 2rem;
           display: flex;
           justify-content: space-between;
-          padding: 1.2rem 2rem;
-          background: #0f172a;
+          z-index: 100;
         }
 
-        .nav h3 {
-          color: #38bdf8;
-        }
+        .nav h3 { color: #38bdf8; }
 
         .nav-links a {
-          margin-left: 1.5rem;
+          margin-left: 1.2rem;
           color: #e5e7eb;
           text-decoration: none;
-          font-size: 0.95rem;
         }
 
         .hero {
-          text-align: center;
           padding: 4rem 2rem;
+          text-align: center;
         }
 
         .profile {
@@ -182,21 +139,18 @@ export default function Home() {
           height: 140px;
           border-radius: 50%;
           cursor: pointer;
-          transition: transform 0.3s ease;
+          transition: transform 0.3s;
         }
 
-        .profile:hover {
-          transform: scale(1.1);
-        }
+        .profile:hover { transform: scale(1.1); }
 
         .modal {
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.8);
+          background: rgba(0,0,0,0.8);
           display: flex;
-          align-items: center;
           justify-content: center;
-          z-index: 200;
+          align-items: center;
         }
 
         .modal-img {
@@ -210,48 +164,26 @@ export default function Home() {
           margin: auto;
         }
 
-        .section h2 {
-          margin-bottom: 1.5rem;
-          color: #38bdf8;
-        }
-
         .skills-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
           gap: 1.5rem;
         }
 
-        .skills-grid div,
-        .card {
+        .skills-grid div, .card {
           background: #020617;
           padding: 1.5rem;
           border-radius: 14px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-          transition: transform 0.3s ease;
+          transition: transform 0.3s;
         }
 
-        .skills-grid div:hover,
-        .card:hover {
+        .skills-grid div:hover, .card:hover {
           transform: translateY(-6px);
         }
 
-        .cert-list li {
-          margin-bottom: 0.8rem;
-        }
-
         .footer {
-          padding: 2rem;
           text-align: center;
+          padding: 2rem;
           background: #020617;
-        }
-
-        .footer a {
-          color: #38bdf8;
-          margin: 0 1rem;
           font-size: 1.5rem;
         }
-      `}</style>
-    </>
-  );
-}
-
