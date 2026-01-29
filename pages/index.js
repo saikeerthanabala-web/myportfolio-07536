@@ -182,7 +182,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-links">
-          <a href="/Sai_Keerthana_Bala_Resume.pdf" target="_blank">Resume</a>
+          <a href="/SaiKeerthanaResume.pdf" target="_blank">Resume</a>
           <a
             href="https://www.linkedin.com/in/saikeerthanabala"
             target="_blank"
